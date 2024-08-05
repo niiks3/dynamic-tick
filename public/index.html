@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration</title>
+  <!-- Updated Firebase CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="firebase.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #event-details {
+      flex: 1;
+      margin-right: 20px;
+      padding: 20px;
+      background: url('https://cdn.pixabay.com/photo/2016/01/07/19/06/event-1126344_1280.jpg') no-repeat center center;
+      background-size: cover;
+      border-radius: 15px;
+      color: white;
+    }
+
+    #registration-form {
+      flex: 1;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+    }
+
+    #registration-form form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #registration-form input {
+      display: block;
+      width: calc(50% - 10px);
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #registration-form .form-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #registration-form button {
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #registration-form button:hover {
+      background-color: #555;
+    }
+
+    #confirmation {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="event-details">
+      <h1 id="event-title">Event Title</h1>
+      <p id="event-description">Event Description</p>
+      <p id="event-date">Event Date</p>
+      <p id="event-location">Event Location</p>
+      <p id="ticket-price"></p>
+    </div>
+    <div id="registration-form">
+      <h2>Register for this Event</h2>
+      <form id="form">
+        <div class="form-group">
+          <input type="text" id="first-name" placeholder="First Name" required>
+          <input type="text" id="last-name" placeholder="Last Name" required>
+        </div>
+        <input type="text" id="phone-number" placeholder="Phone Number" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+  <div id="confirmation" style="display: none;">
+    <h2>Thank you for registering!</h2>
+    <p>We have received your registration.</p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

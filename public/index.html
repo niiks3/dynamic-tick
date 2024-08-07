@@ -12,80 +12,120 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script src="firebase.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #6a11cb, #2575fc);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+   body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-    #container {
-      display: flex;
-      justify-content: space-between;
-      width: 80%;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-    #event-details {
-      flex: 1;
-      margin-right: 20px;
-      padding: 20px;
-      background: url('https://cdn.pixabay.com/photo/2016/01/07/19/06/event-1126344_1280.jpg') no-repeat center center;
-      background-size: cover;
-      border-radius: 15px;
-      color: white;
-    }
+#event-details {
+  flex: 1;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: url('https://cdn.pixabay.com/photo/2016/01/07/19/06/event-1126344_1280.jpg') no-repeat center center;
+  background-size: cover;
+  border-radius: 15px;
+  color: white;
+}
 
-    #registration-form {
-      flex: 1;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-    }
+#registration-form {
+  flex: 1;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    #registration-form form {
-      display: flex;
-      flex-direction: column;
-    }
+#registration-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-    #registration-form input {
-      display: block;
-      width: calc(50% - 10px);
-      margin: 10px 0;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-    }
+#registration-form input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
 
-    #registration-form .form-group {
-      display: flex;
-      justify-content: space-between;
-    }
+#registration-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  width: calc(107% - 40px);
+}
 
-    #registration-form button {
-      padding: 10px;
-      background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+#registration-form .form-group input {
+  width: calc(100% - 40px);
+  margin: 0 5px;
+}
 
-    #registration-form button:hover {
-      background-color: #555;
-    }
+#registration-form button {
+  width: calc(100% - 40px);
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-    #confirmation {
-      text-align: center;
-    }
+#registration-form button:hover {
+  background-color: #555;
+}
+
+#confirmation {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #registration-form input, #registration-form button {
+    width: calc(100% - 20px);
+  }
+
+  #registration-form .form-group {
+    flex-direction: column;
+  }
+
+  #registration-form .form-group input {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+  }
+
+  #container {
+    padding: 10px;
+  }
+
+  #event-details, #registration-form {
+    margin-bottom: 10px;
+  }
+}
+
+
   </style>
 </head>
 <body>
